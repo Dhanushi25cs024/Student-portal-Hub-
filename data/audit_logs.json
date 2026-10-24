@@ -1,0 +1,57 @@
+[
+    {
+        "timestamp": "2026-10-24 09:45:08",
+        "user_id": 1,
+        "username": "admin",
+        "role": "admin",
+        "action": "USER_LOGIN",
+        "table_affected": "users",
+        "record_id": 1,
+        "details": "User logged in (admin) from ::1",
+        "ip_address": "::1"
+    },
+    {
+        "timestamp": "2026-10-24 09:44:42",
+        "user_id": 1,
+        "username": "admin",
+        "role": "admin",
+        "action": "SESSION_TIMEOUT",
+        "table_affected": "users",
+        "record_id": 1,
+        "details": "User session automatically expired due to 15m inactivity",
+        "ip_address": "::1"
+    },
+    {
+        "timestamp": "2026-10-24 09:43:37",
+        "user_id": 2,
+        "username": "dhanushi",
+        "role": "student",
+        "action": "USER_LOGIN",
+        "table_affected": "users",
+        "record_id": 2,
+        "details": "User logged in (student) from ::1",
+        "ip_address": "::1"
+    },
+    {
+        "timestamp": "2026-10-24 09:43:24",
+        "user_id": 1,
+        "username": "admin",
+        "role": "admin",
+        "action": "USER_LOGIN",
+        "table_affected": "users",
+        "record_id": 1,
+        "details": "User logged in (admin) from ::1",
+        "ip_address": "::1"
+    },
+    {
+        "timestamp": "2026-10-24 08:45:21",
+        "user_id": 1,
+        "username": "admin",
+        "role": "admin",
+        "action": "USER_LOGIN",
+        "table_affected": "users",
+        "record_id": 1,
+        "details": "User logged in (admin) from ::1",
+        "ip_address": "::1"
+    }
+]

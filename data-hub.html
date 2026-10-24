@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Events & Student Hub</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- UI Interactivity Script (Theme Toggle & Mobile Navbar) -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Fallback data in case opened via file:// protocol -->
+    <script src="js/modules/fallbackData.js" defer></script>
+
+    <!-- Modular JavaScript Modules -->
+    <script src="js/modules/api.js" defer></script>
+    <script src="js/modules/dataUtils.js" defer></script>
+    <script src="js/modules/render.js" defer></script>
+    <script src="js/portal-hub.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+    <header>
+        <div class="container text-center py-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo5SFHu6xPFG4GVAS_RSeQOdaARiaRjeaWNJAgi7gLgQ&s=10"
+                width="100" height="100" alt="StudentHub Logo">
+            <h1>StudentHub Portal</h1>
+            <p>Campus Events & Student Directory</p>
+        </div>
+    </header>
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">StudentHub</a>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="navbar-toggler" type="button" id="menuToggle" aria-label="Open navigation menu"
+                aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item ms-2">
+                        <button id="themeButton" class="btn btn-warning btn-sm">
+                            🌙 Dark Mode
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cources.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assignment.html">Assignments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="attendence.html">Attendance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notice.html">Notices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">Events & Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faculty.html">Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================================================
+         MAIN CONTENT AREA
+    ================================================== -->
+    <main class="container flex-grow-1 my-4">
+
+        <!-- Page Title -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Campus Events & Student Directory</h2>
+            <p class="text-muted">Explore upcoming campus events, view student profiles, or browse frequently asked questions.</p>
+        </div>
+
+        <!-- Dataset Switcher Buttons -->
+        <div class="d-flex justify-content-center gap-2 mb-4">
+            <button type="button" id="tabEvents" class="btn btn-primary active" onclick="switchTab('events')">
+                📅 Campus Events
+            </button>
+            <button type="button" id="tabStudents" class="btn btn-outline-primary" onclick="switchTab('students')">
+                🎓 Student Directory
+            </button>
+            <button type="button" id="tabFaqs" class="btn btn-outline-primary" onclick="switchTab('faqs')">
+                ❓ Campus FAQs
+            </button>
+        </div>
+
+        <!-- Search, Filter & Sort Controls Card -->
+        <div class="card shadow-sm p-3 mb-4">
+            <div class="row g-3 align-items-center">
+
+                <!-- 1. Search Box -->
+                <div class="col-lg-5 col-md-12">
+                    <label for="searchInput" class="form-label small fw-bold">Search:</label>
+                    <input type="text" id="searchInput" class="form-control"
+                        placeholder="Search by title, name, keyword, skill...">
+                </div>
+
+                <!-- 2. Dynamic Filter Dropdown (Category or Department) -->
+                <div class="col-lg-4 col-md-6">
+                    <label for="filterSelect" id="filterLabel" class="form-label small fw-bold">Category:</label>
+                    <select id="filterSelect" class="form-select">
+                        <option value="all">All</option>
+                    </select>
+                </div>
+
+                <!-- 3. Sort Dropdown -->
+                <div class="col-lg-3 col-md-6">
+                    <label for="sortSelect" class="form-label small fw-bold">Sort By:</label>
+                    <select id="sortSelect" class="form-select">
+                        <option value="default">Default</option>
+                        <option value="title-asc">Title / Name (A - Z)</option>
+                        <option value="title-desc">Title / Name (Z - A)</option>
+                        <option value="date-asc">Date (Earliest First)</option>
+                        <option value="capacity-desc">Capacity / Score (High to Low)</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Bottom Row: Count & Items Per Page -->
+            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                <span id="resultsCount" class="text-muted small">Loading records...</span>
+                <div class="d-flex align-items-center gap-2">
+                    <label for="itemsPerPageSelect" class="text-muted small">Per Page:</label>
+                    <select id="itemsPerPageSelect" class="form-select form-select-sm" style="width: 75px;">
+                        <option value="6" selected>6</option>
+                        <option value="9">9</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Data Display Container -->
+        <div id="dataContainer" class="row g-4 min-vh-50">
+            <!-- Content will be injected dynamically by JavaScript -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center" id="paginationContainer">
+                <!-- Page links injected dynamically by JavaScript -->
+            </ul>
+        </nav>
+
+    </main>
+
+    <!-- ==================================================
+         EVENT DETAILS MODAL
+    ================================================== -->
+    <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="modalEventTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalEventTitle">Event Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalEventBody">
+                    <!-- Set by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm"
+                        onclick="confirmEventRegistration()" data-bs-dismiss="modal">
+                        Confirm Registration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+    <footer>
+        <div class="container text-center py-3">
+            <p class="mb-0">© 2026 StudentHub Portal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

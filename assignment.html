@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Assignments</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+        <div class="container text-center py-3">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo5SFHu6xPFG4GVAS_RSeQOdaARiaRjeaWNJAgi7gLgQ&s=10"
+                width="100"
+                height="100"
+                alt="StudentHub Logo">
+
+            <h1>StudentHub Portal</h1>
+
+            <p>Assignments</p>
+
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                StudentHub
+            </a>
+
+
+            <!-- Hamburger Menu -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Navigation Links -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item ms-2">
+                        <button id="themeButton"
+                                class="btn btn-warning btn-sm">
+                            🌙 Dark Mode
+                        </button>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="cources.html">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            href="assignment.html">
+                            Assignments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="attendence.html">
+                            Attendance
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="notice.html">
+                            Notices
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">
+                            Events & Data Hub
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="faculty.html">
+                            Faculty
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="profile.html">
+                            Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="admin.html">
+                            Admin
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="container my-5 flex-grow-1">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-11">
+
+                <div class="card shadow">
+
+                    <div class="card-body">
+
+                        <h2 class="text-center mb-4">
+                            My Assignments
+                        </h2>
+
+
+                        <!-- =================================================
+                             ASSIGNMENT TABLE
+                        ================================================== -->
+
+                        <div class="table-responsive">
+
+                            <table
+                                class="table table-bordered table-hover align-middle">
+
+                                <thead class="table-primary">
+
+                                    <tr>
+
+                                        <th>
+                                            Assignment
+                                        </th>
+
+                                        <th>
+                                            Course
+                                        </th>
+
+                                        <th>
+                                            Due Date
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+
+                                    <!-- Assignment 1 -->
+
+                                    <tr>
+
+                                        <td>
+                                            Java OOP Assignment
+                                        </td>
+
+                                        <td>
+                                            Java Programming
+                                        </td>
+
+                                        <td>
+                                            18 July 2026
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-warning">
+                                                Pending
+                                            </span>
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                class="btn btn-primary btn-sm assignment-btn"
+                                                data-assignment="Java OOP Assignment">
+
+                                                View
+
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <!-- Assignment 2 -->
+
+                                    <tr>
+
+                                        <td>
+                                            HTML & CSS Project
+                                        </td>
+
+                                        <td>
+                                            Web Development
+                                        </td>
+
+                                        <td>
+                                            20 July 2026
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Submitted
+                                            </span>
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                class="btn btn-primary btn-sm assignment-btn"
+                                                data-assignment="HTML & CSS Project">
+
+                                                View
+
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <!-- Assignment 3 -->
+
+                                    <tr>
+
+                                        <td>
+                                            Linked List Implementation
+                                        </td>
+
+                                        <td>
+                                            Data Structures
+                                        </td>
+
+                                        <td>
+                                            22 July 2026
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-warning">
+                                                Pending
+                                            </span>
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                class="btn btn-primary btn-sm assignment-btn"
+                                                data-assignment="Linked List Implementation">
+
+                                                View
+
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <!-- Assignment 4 -->
+
+                                    <tr>
+
+                                        <td>
+                                            Network Protocol Analysis
+                                        </td>
+
+                                        <td>
+                                            Networking
+                                        </td>
+
+                                        <td>
+                                            25 July 2026
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                Not Submitted
+                                            </span>
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                class="btn btn-primary btn-sm assignment-btn"
+                                                data-assignment="Network Protocol Analysis">
+
+                                                View
+
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             JAVASCRIPT MESSAGE
+                        ================================================== -->
+
+                        <div
+                            id="assignmentMessage"
+                            class="alert alert-info text-center mt-4"
+                            style="display: none;"
+                            aria-live="polite">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container text-center">
+
+            <p class="mb-0">
+                © 2026 StudentHub Portal.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Student Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Project JavaScript -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+    <header>
+        <div class="container text-center py-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo5SFHu6xPFG4GVAS_RSeQOdaARiaRjeaWNJAgi7gLgQ&s=10"
+                 width="100" height="100" alt="StudentHub Logo">
+            <h1>StudentHub Portal</h1>
+            <p>Student Registration</p>
+        </div>
+    </header>
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">StudentHub</a>
+
+            <button class="navbar-toggler" type="button" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item ms-2 me-2">
+                        <button id="themeButton" class="btn btn-warning btn-sm fw-bold">🌙 Dark Mode</button>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cources.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="assignment.html">Assignments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="attendence.html">Attendance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notice.html">Notices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">Events & Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+    <main class="container my-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+
+                <div class="card shadow">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="text-center mb-4">
+                            <span class="fs-1">🎓</span>
+                            <h2 class="fw-bold mt-2">Student Registration</h2>
+                            <p class="text-muted">Enter your details to register in the portal</p>
+                        </div>
+
+                        <!-- Success/Error alert box -->
+                        <div id="frontendErrorBox" class="alert alert-danger d-none" role="alert" aria-live="polite"></div>
+                        <div id="staticSuccessBox" class="alert alert-success d-none" role="alert" aria-live="polite"></div>
+
+                        <form id="registrationForm" action="process.php" method="POST" novalidate>
+                            <!-- Full Name -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="fullName" class="form-label fw-semibold">
+                                        Full Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="fullName" name="full_name" placeholder="e.g. Dhanushi Patel" required>
+                                    <div id="nameError" class="invalid-feedback">
+                                        Letters and spaces only (min 3 characters).
+                                    </div>
+                                </div>
+
+                                <!-- Username -->
+                                <div class="col-md-6">
+                                    <label for="regUsername" class="form-label fw-semibold">
+                                        Username <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="regUsername" name="username" placeholder="e.g. dhanushi25" required>
+                                    <div id="usernameError" class="invalid-feedback">
+                                        3-20 alphanumeric characters or underscores.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email & Phone -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="regEmail" class="form-label fw-semibold">
+                                        Email Address <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="regEmail" name="email" placeholder="student@charusat.edu.in" required>
+                                    <div id="emailError" class="invalid-feedback">
+                                        Enter a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="regPhone" class="form-label fw-semibold">
+                                        Mobile Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">+91</span>
+                                        <input type="tel" class="form-control" id="regPhone" name="phone" placeholder="9876543210" maxlength="10" required>
+                                        <div id="phoneError" class="invalid-feedback">
+                                            10-digit mobile number starting with 6-9.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course & Semester -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-7">
+                                    <label for="regCourse" class="form-label fw-semibold">
+                                        Course / Department <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="regCourse" name="course" required>
+                                        <option value="" selected disabled>Select your course...</option>
+                                        <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                                        <option value="Information Technology">Information Technology</option>
+                                        <option value="Computer Engineering">Computer Engineering</option>
+                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please choose a course.</div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label for="regSemester" class="form-label fw-semibold">
+                                        Current Semester <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="regSemester" name="semester" required>
+                                        <option value="1">Semester 1</option>
+                                        <option value="2">Semester 2</option>
+                                        <option value="3" selected>Semester 3</option>
+                                        <option value="4">Semester 4</option>
+                                        <option value="5">Semester 5</option>
+                                        <option value="6">Semester 6</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Gender Radio -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold d-block">
+                                    Gender <span class="text-danger">*</span>
+                                </label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                                    <label class="form-check-label" for="genderMale">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female">
+                                    <label class="form-check-label" for="genderFemale">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Other">
+                                    <label class="form-check-label" for="genderOther">Other</label>
+                                </div>
+                            </div>
+
+                            <!-- Password & Strength Meter -->
+                            <div class="row g-3 mb-2">
+                                <div class="col-md-6">
+                                    <label for="regPassword" class="form-label fw-semibold">
+                                        Password <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="password" class="control form-control" id="regPassword" name="password" placeholder="Min 6 characters" required>
+                                    <div id="passwordError" class="invalid-feedback">At least 6 characters.</div>
+
+                                    <!-- Strength Meter -->
+                                    <div class="mt-2">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <small class="fw-bold" style="font-size: 0.75rem;">Password Strength:</small>
+                                            <small id="strengthLabel" class="text-muted fw-bold" style="font-size: 0.75rem;">None</small>
+                                        </div>
+                                        <div class="progress" style="height: 6px;">
+                                            <div id="strengthBar" class="progress-bar bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="regConfirmPassword" class="form-label fw-semibold">
+                                        Confirm Password <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="password" class="form-control" id="regConfirmPassword" name="confirm_password" placeholder="Re-enter password" required>
+                                    <div id="confirmError" class="invalid-feedback">Passwords do not match.</div>
+                                </div>
+                            </div>
+
+                            <!-- Terms -->
+                            <div class="form-check my-4">
+                                <input class="form-check-input" type="checkbox" id="regTerms" name="terms" required>
+                                <label class="form-check-label" for="regTerms">
+                                    I agree to the StudentHub Terms and Academic Integrity Policies.
+                                </label>
+                                <div class="invalid-feedback">You must agree before registering.</div>
+                            </div>
+
+                            <div class="d-grid mb-3">
+                                <button type="submit" id="submitRegBtn" class="btn btn-primary btn-lg fw-bold">
+                                    🚀 Register Account
+                                </button>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <span class="text-muted">Already registered?</span>
+                                <a href="login.html" class="fw-bold ms-1" style="color: #009688;">Log In</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-4 text-center">
+        <div class="container">
+            <p class="mb-1 text-white">© 2026 StudentHub Portal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form            = document.getElementById("registrationForm");
+        const fullName        = document.getElementById("fullName");
+        const username        = document.getElementById("regUsername");
+        const email           = document.getElementById("regEmail");
+        const phone           = document.getElementById("regPhone");
+        const password        = document.getElementById("regPassword");
+        const confirmPassword = document.getElementById("regConfirmPassword");
+        const terms           = document.getElementById("regTerms");
+        const strengthBar     = document.getElementById("strengthBar");
+        const strengthLabel   = document.getElementById("strengthLabel");
+        const errorBox        = document.getElementById("frontendErrorBox");
+        const successBox      = document.getElementById("staticSuccessBox");
+
+        const nameRegex  = /^[a-zA-Z\s]{3,60}$/;
+        const userRegex  = /^[a-zA-Z0-9_]{3,20}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phoneRegex = /^[6-9]\d{9}$/;
+
+        function validateField(input, isValid) {
+            if (isValid) {
+                input.classList.remove("is-invalid");
+                input.classList.add("is-valid");
+                return true;
+            } else {
+                input.classList.remove("is-valid");
+                input.classList.add("is-invalid");
+                return false;
+            }
+        }
+
+        fullName.addEventListener("input", () => validateField(fullName, nameRegex.test(fullName.value.trim())));
+        username.addEventListener("input", () => validateField(username, userRegex.test(username.value.trim())));
+        email.addEventListener("input", () => validateField(email, emailRegex.test(email.value.trim())));
+        phone.addEventListener("input", () => validateField(phone, phoneRegex.test(phone.value.trim())));
+
+        password.addEventListener("input", function () {
+            const val = password.value;
+            let score = 0;
+            if (val.length >= 6) score += 25;
+            if (val.length >= 10) score += 15;
+            if (/[A-Z]/.test(val)) score += 20;
+            if (/[0-9]/.test(val)) score += 20;
+            if (/[^A-Za-z0-9]/.test(val)) score += 20;
+
+            strengthBar.style.width = score + "%";
+            if (score < 40) {
+                strengthBar.className = "progress-bar bg-danger";
+                strengthLabel.textContent = "Weak";
+            } else if (score < 75) {
+                strengthBar.className = "progress-bar bg-warning";
+                strengthLabel.textContent = "Moderate";
+            } else {
+                strengthBar.className = "progress-bar bg-success";
+                strengthLabel.textContent = "Strong";
+            }
+
+            validateField(password, val.length >= 6);
+            if (confirmPassword.value) {
+                validateField(confirmPassword, confirmPassword.value === val);
+            }
+        });
+
+        confirmPassword.addEventListener("input", () => {
+            validateField(confirmPassword, confirmPassword.value === password.value && confirmPassword.value !== "");
+        });
+
+        form.addEventListener("submit", function (e) {
+            const isNameOk  = validateField(fullName, nameRegex.test(fullName.value.trim()));
+            const isUserOk  = validateField(username, userRegex.test(username.value.trim()));
+            const isEmailOk = validateField(email, emailRegex.test(email.value.trim()));
+            const isPhoneOk = validateField(phone, phoneRegex.test(phone.value.trim()));
+            const isPassOk  = validateField(password, password.value.length >= 6);
+            const isMatchOk = validateField(confirmPassword, confirmPassword.value === password.value && confirmPassword.value !== "");
+            const isTermsOk = terms.checked;
+
+            if (!isNameOk || !isUserOk || !isEmailOk || !isPhoneOk || !isPassOk || !isMatchOk || !isTermsOk) {
+                e.preventDefault();
+                errorBox.classList.remove("d-none");
+                errorBox.innerHTML = "<strong>Validation Failed:</strong> Please correct all invalid fields according to requirements.";
+                return;
+            }
+            errorBox.classList.add("d-none");
+
+            if (window.location.protocol === "file:") {
+                e.preventDefault();
+                successBox.classList.remove("d-none");
+                successBox.innerHTML = `<strong>Registration Validated!</strong> Name: ${fullName.value}, Email: ${email.value}.`;
+                form.reset();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

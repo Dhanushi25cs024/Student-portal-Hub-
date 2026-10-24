@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Admin</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+        <div class="container text-center py-3">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo5SFHu6xPFG4GVAS_RSeQOdaARiaRjeaWNJAgi7gLgQ&s=10"
+                width="100"
+                height="100"
+                alt="StudentHub Logo">
+
+            <h1>StudentHub Portal</h1>
+
+            <p>Admin Dashboard</p>
+
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                StudentHub
+            </a>
+
+
+            <!-- Hamburger Menu -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Navigation Links -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item ms-2">
+                        <button id="themeButton"
+                                class="btn btn-warning btn-sm">
+                            🌙 Dark Mode
+                        </button>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="cources.html">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="assignment.html">
+                            Assignments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="attendence.html">
+                            Attendance
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="notice.html">
+                            Notices
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">
+                            Events & Data Hub
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="faculty.html">
+                            Faculty
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="profile.html">
+                            Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            href="admin.html">
+                            Admin
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="container my-5 flex-grow-1">
+
+        <h2 class="text-center mb-5">
+            Admin Dashboard
+        </h2>
+
+
+        <!-- =================================================
+             DASHBOARD CARDS
+        ================================================== -->
+
+        <div class="row g-4 mb-5">
+
+
+            <!-- Students -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow h-100">
+
+                    <div class="card-body text-center">
+
+                        <h3>👨‍🎓</h3>
+
+                        <h4>Students</h4>
+
+                        <p>
+                            Total registered students
+                        </p>
+
+                        <h2>
+                            250
+                        </h2>
+
+                        <button
+                            class="btn btn-primary admin-btn"
+                            data-action="students">
+
+                            View Students
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Faculty -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow h-100">
+
+                    <div class="card-body text-center">
+
+                        <h3>👨‍🏫</h3>
+
+                        <h4>Faculty</h4>
+
+                        <p>
+                            Total faculty members
+                        </p>
+
+                        <h2>
+                            25
+                        </h2>
+
+                        <button
+                            class="btn btn-primary admin-btn"
+                            data-action="faculty">
+
+                            View Faculty
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Courses -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow h-100">
+
+                    <div class="card-body text-center">
+
+                        <h3>📚</h3>
+
+                        <h4>Courses</h4>
+
+                        <p>
+                            Active courses
+                        </p>
+
+                        <h2>
+                            12
+                        </h2>
+
+                        <button
+                            class="btn btn-primary admin-btn"
+                            data-action="courses">
+
+                            View Courses
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ADMIN ACTIONS
+        ================================================== -->
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h3 class="text-center mb-4">
+                    Admin Actions
+                </h3>
+
+
+                <div class="row g-3">
+
+
+                    <!-- Add Notice -->
+
+                    <div class="col-md-4">
+
+                        <button
+                            id="addNoticeButton"
+                            class="btn btn-success w-100">
+
+                            ➕ Add Notice
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Manage Students -->
+
+                    <div class="col-md-4">
+
+                        <button
+                            id="manageStudentsButton"
+                            class="btn btn-primary w-100">
+
+                            👨‍🎓 Manage Students
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Manage Courses -->
+
+                    <div class="col-md-4">
+
+                        <button
+                            id="manageCoursesButton"
+                            class="btn btn-warning w-100">
+
+                            📚 Manage Courses
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     JAVASCRIPT MESSAGE
+                ================================================== -->
+
+                <div
+                    id="adminMessage"
+                    class="alert alert-info text-center mt-4"
+                    style="display: none;"
+                    aria-live="polite">
+
+                </div>
+
+
+                <!-- =================================================
+                     ADD NOTICE FORM
+                ================================================== -->
+
+                <div
+                    id="noticeFormBox"
+                    class="mt-4"
+                    style="display: none;">
+
+                    <h4>
+                        Add New Notice
+                    </h4>
+
+                    <form id="adminNoticeForm">
+
+                        <div class="mb-3">
+
+                            <label
+                                for="noticeTitle"
+                                class="form-label">
+
+                                Notice Title
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="noticeTitle"
+                                class="form-control"
+                                placeholder="Enter notice title"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="noticeDescription"
+                                class="form-label">
+
+                                Notice Description
+
+                            </label>
+
+                            <textarea
+                                id="noticeDescription"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Enter notice description"
+                                required></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-success">
+
+                            Publish Notice
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container text-center">
+
+            <p class="mb-0">
+                © 2026 StudentHub Portal.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>
